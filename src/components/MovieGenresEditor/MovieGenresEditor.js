@@ -32,8 +32,8 @@ class MovieGenresEditor extends Component {
     this.props.dispatch({
       type: 'POST_MOVIE_GENRE',
       payload: {
-        movie_id: this.props.movieId,
-        genre_id: this.state.selectedGenreId,
+        movies_id: this.props.movieId,
+        genres_id: this.state.selectedGenreId,
       }
     })
   }
