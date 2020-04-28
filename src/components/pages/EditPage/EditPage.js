@@ -73,7 +73,7 @@ class EditPage extends Component {
           <div>
             <textarea
               onChange={this.changeMovieDetails('description')}
-              defaultValue={this.props.store.details.title}
+              defaultValue={this.props.store.details.description}
             >
             </textarea>
           </div>
