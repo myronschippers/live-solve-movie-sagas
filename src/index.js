@@ -9,14 +9,38 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects';
+
+//
+// SAGAS for API calls
+// --------------------
+
+// SAGA GETs all movies from server API and sends to movies reducer
+function* getAllMovies() {
+    try {
+        const response = yield axios.get('/api/movies');
+        yield put({
+            type: 'SET_MOVIES',
+            payload: response.data,
+        }); // put() is the same as this.props.dispatch()
+    } catch(err) {
+        console.warn(err);
+    }
+}
 
 // Create the rootSaga generator function
 function* rootSaga() {
     // REGISTER SAGAS HERE
+    yield takeLatest('GET_ALL_MOVIES', getAllMovies);
 }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
+
+//
+// REDUCERS for storing state
+// --------------------
 
 // Used to store movies returned from the server
 // REDUCER STORING MOVIES
