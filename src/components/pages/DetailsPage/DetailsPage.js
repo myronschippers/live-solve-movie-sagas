@@ -36,7 +36,7 @@ class DetailsPage extends Component {
         <p>{this.props.store.details.description}</p>
 
         <ul>
-          {this.props.store.genres.map((item, index) => <li key={index}>{item.name}</li>)}
+          {this.props.store.movieGenres.map((item, index) => <li key={index}>{item.name}</li>)}
         </ul>
       </div>
     );

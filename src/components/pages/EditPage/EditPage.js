@@ -81,7 +81,7 @@ class EditPage extends Component {
           </div>
         </div>
 
-        <MovieGenresEditor />
+        <MovieGenresEditor movieId={this.props.match.params.id} />
       </div>
     );
   }

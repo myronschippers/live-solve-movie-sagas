@@ -6,7 +6,7 @@ function* getMovieGenres(action) {
       const movieId = action.payload;
       const response = yield axios.get(`/api/movies/genres/${movieId}`);
       yield put({
-          type: 'SET_GENRES',
+          type: 'SET_MOVIE_GENRES',
           payload: response.data,
       })
   } catch(err) {
