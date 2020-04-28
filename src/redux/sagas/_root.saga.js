@@ -8,6 +8,7 @@ import putMovieDetails from './putMovieDetails.saga';
 import deleteMovieGenre from './deleteMovieGenre.saga';
 import getGenres from './getGenres.saga';
 import postMovieGenre from './postMovieGenre.saga';
+import postGenre from './postGenre.saga';
 
 // REGISTRATION FOR ALL SAGAS
 // Create the rootSaga generator function
@@ -20,6 +21,7 @@ function* rootSaga() {
   yield takeLatest ('DELETE_MOVIE_GENRE', deleteMovieGenre);
   yield takeLatest ('GET_GENRES', getGenres);
   yield takeLatest ('POST_MOVIE_GENRE', postMovieGenre);
+  yield takeLatest ('POST_GENRE', postGenre);
 }
 
 export default rootSaga;
