@@ -17,9 +17,19 @@ router.get('/', (req, res) => {
     });
 });
 
-// TODO - create GET for movie details (a single movie)
-router.get('/', (req, res) => {
+router.get('/details/:id', (req, res) => {
   // get a single movies' data
+  const queryString = `SELECT * FROM "movies" WHERE "id" = $1;`;
+  const movieId = req.params.id;
+
+  pool.query(queryString, [movieId])
+    .then((responseDb) => {
+      res.send(responseDb.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
 });
 
 // TODO - create PUT for updating a single movie
