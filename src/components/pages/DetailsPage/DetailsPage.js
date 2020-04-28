@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class DetailsPage extends Component {
+  componentDidMount() {
+    // dispatch to saga to call server API
+    this.props.dispatch({
+      type: 'GET_MOVIE',
+      payload: this.props.match.params.id
+    });
+  }
+
   clickBackToList = (event) => {
     this.props.history.push('/');
   }
@@ -16,4 +25,4 @@ class DetailsPage extends Component {
   }
 }
 
-export default DetailsPage;
+export default connect()(DetailsPage);

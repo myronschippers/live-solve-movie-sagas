@@ -17,9 +17,22 @@ import { put, takeLatest } from 'redux-saga/effects';
 // --------------------
 
 // SAGA GETs all movies from server API and sends to movies reducer
-function* getAllMovies() {
+function* getAllMovies(action) {
     try {
         const response = yield axios.get('/api/movies');
+        yield put({
+            type: 'SET_MOVIES',
+            payload: response.data,
+        }); // put() is the same as this.props.dispatch()
+    } catch(err) {
+        console.warn(err);
+    }
+}
+
+function* getMovie(action) {
+    try {
+        const movieId = action.payload;
+        const response = yield axios.get(`/api/movies/details/${movieId}`);
         yield put({
             type: 'SET_MOVIES',
             payload: response.data,
@@ -33,6 +46,7 @@ function* getAllMovies() {
 function* rootSaga() {
     // REGISTER SAGAS HERE
     yield takeLatest('GET_ALL_MOVIES', getAllMovies);
+    yield takeLatest('GET_MOVIE', getMovie);
 }
 
 // Create sagaMiddleware
@@ -47,6 +61,15 @@ const sagaMiddleware = createSagaMiddleware();
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const details = (state = [], action) => {
+    switch(action.type) {
+        case 'SET_DETAILS':
             return action.payload;
         default:
             return state;
@@ -70,6 +93,7 @@ const storeInstance = createStore(
         // REDUCERS ARE REGISTERED
         movies,
         genres,
+        details,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
