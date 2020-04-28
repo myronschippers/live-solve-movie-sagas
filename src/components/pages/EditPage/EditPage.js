@@ -54,9 +54,8 @@ class EditPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="algnLeft">
         <h2>Edit</h2>
-        <p>Selected ID: {this.props.match.params.id}</p>
         <div>
           <button onClick={this.clickCancel}>Cancel</button>
           <button onClick={this.clickSaveMovieDetails}>Save</button>
@@ -68,11 +67,13 @@ class EditPage extends Component {
               type="text"
               placeholder="New Title"
               onChange={this.changeMovieDetails('title')}
+              defaultValue={this.props.store.details.title}
             />
           </div>
           <div>
             <textarea
               onChange={this.changeMovieDetails('description')}
+              defaultValue={this.props.store.details.description}
             >
             </textarea>
           </div>
