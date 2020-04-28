@@ -86,49 +86,8 @@ function* rootSaga() {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-//
-// REDUCERS for storing state
-// --------------------
-
-// Used to store movies returned from the server
-// REDUCER STORING MOVIES
-// const movies = (state = [], action) => {
-//     switch (action.type) {
-//         case 'SET_MOVIES':
-//             return action.payload;
-//         default:
-//             return state;
-//     }
-// }
-
-// const details = (state = {}, action) => {
-//     switch(action.type) {
-//         case 'SET_DETAILS':
-//             return action.payload;
-//         default:
-//             return state;
-//     }
-// }
-
-// Used to store the movie genres
-// REDUCER FOR STORING MOVIE GENRES
-// const genres = (state = [], action) => {
-//     switch (action.type) {
-//         case 'SET_GENRES':
-//             return action.payload;
-//         default:
-//             return state;
-//     }
-// }
-
 // Create one store that all components can use
 const storeInstance = createStore(
-    // combineReducers({
-    //     // REDUCERS ARE REGISTERED
-    //     movies,
-    //     genres,
-    //     details,
-    // }),
     // replacing reducer registration with abstracted file
     rootReducer,
     // Add sagaMiddleware to our store
