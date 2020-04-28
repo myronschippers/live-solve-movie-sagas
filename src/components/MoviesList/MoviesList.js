@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import MoviesListItem from '../MoviesListItem/MoviesListItem';
 
 class MoviesList extends Component {
   componentDidMount() {
@@ -18,23 +19,7 @@ class MoviesList extends Component {
     return (
       <div className="algnLeft">
         {this.props.store.movies.map((item, index) => (
-          <div
-            key={index}
-            className="movieListItem"
-            onClick={(event) => this.clickMovieDetails(event, item.id)}
-          >
-            <img src={item.poster} alt={item.title} />
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <ul>
-                {item.genre.filter((genreItemFilter) => (genreItemFilter !== null))
-                  .map((genreItem, genreIndex) => (
-                  <li key={genreIndex}>{genreItem}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <MoviesListItem key={index} item={item} />
         ))}
       </div>
     );
