@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AddGenre from '../../AddGenre/AddGenre';
+import GenresList from '../../GenresList/GenresList';
 
 class AdminPage extends Component {
   render() {
@@ -11,6 +12,7 @@ class AdminPage extends Component {
         <Link to="/">Home Page</Link>
 
         <AddGenre />
+        <GenresList />
       </div>
     );
   }
