@@ -6,6 +6,7 @@ import './App.css';
 import DetailsPage from '../pages/DetailsPage/DetailsPage';
 import HomePage from '../pages/HomePage/HomePage';
 import EditPage from '../pages/EditPage/EditPage';
+import AdminPage from '../pages/AdminPage/AdminPage';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/details/:id" component={DetailsPage} />
           <Route path="/edit/:id" component={EditPage} />
+          <Route path="/admin" component={AdminPage} />
         </Router>
       </div>
     );
