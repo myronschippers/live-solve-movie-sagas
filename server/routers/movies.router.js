@@ -33,8 +33,28 @@ router.get('/details/:id', (req, res) => {
 });
 
 // TODO - create PUT for updating a single movie
-router.put('/', (req, res) => {
+router.put('/edit/:id', (req, res) => {
   // update data for a single movie
+  const queryText = `UPDATE "movies"
+    SET "title" = $1, "description" = $2
+    WHERE "id" = $3;`;
+  const movieId = req.params.id;
+  const newMovieData = req.body;
+
+  pool.query(queryText, [
+    // how is title coming to server
+    newMovieData.title,
+    // how to get the description
+    newMovieData.description,
+    movieId
+  ])
+    .then((responseDb) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
