@@ -11,15 +11,15 @@ Displays a listing of movies with specific information. The information for each
 
 #### Home
 
-[Home Page](/wireframes/home.png)
+<img src="/wireframes/home.png" alt="Home Page" />
 
 #### Details
 
-[Details Page](/wireframes/details.png)
+<img src="/wireframes/details.png" alt="Details Page" />
 
 #### Edit
 
-[Edit Page](/wireframes/edit.png)
+<img src="/wireframes/edit.png" alt="Edit Page" />
 
 
 ### Prerequisites
