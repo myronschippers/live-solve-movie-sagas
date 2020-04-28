@@ -94,4 +94,21 @@ router.delete('/genres/:junctionId', (req, res) => {
     });
 });
 
+router.post('/genres', (req, res) => {
+  const moviesGenresData = req.body;
+  const queryString = `INSERT INTO "movies_genres" ("movies_id", "genres_id")
+    VALUES ($1, $2);`;
+
+  pool.query(queryString, [
+    moviesGenresData.movies_id, moviesGenresData.genres_id
+  ])
+    .then((responseDb) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
