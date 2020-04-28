@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
     LEFT JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
     LEFT JOIN "genres" ON "movies_genres".genres_id = "genres".id
     GROUP BY "movies".id
-    ORDER BY "title" ASC;`;
+    ORDER BY "title" ASC
+    LIMIT 10;`;
 
   pool.query(queryText)
     .then((responseDb) => {
