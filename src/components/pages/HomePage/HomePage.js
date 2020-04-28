@@ -9,12 +9,20 @@ class HomePage extends Component {
     })
   }
 
+  clickMovieDetails = (event) => {
+    this.props.history.push('/details');
+  }
+
   render() {
     return (
       <div>
         <h2>Home</h2>
         {this.props.store.movies.map((item, index) => (
-          <div key={index} className="movieListItem">
+          <div
+            key={index}
+            className="movieListItem"
+            onClick={this.clickMovieDetails}
+          >
             <img src={item.poster} alt={item.title} />
             <div>
               <h3>{item.title}</h3>
@@ -31,6 +39,6 @@ const mapStoreToProps = (store) => {
   return {
     store,
   }
-}
+};
 
 export default connect(mapStoreToProps)(HomePage);
