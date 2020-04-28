@@ -13,6 +13,7 @@ app.use(express.static('build'));
 // register movies router
 app.use('/api/movies', moviesRouter);
 app.use('/api/genres', genresRouter);
+// create / register new login route
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

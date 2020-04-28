@@ -16,4 +16,6 @@ router.get('/', (req, res) => {
     });
 });
 
+// TODO - Create delete endpoint
+
 module.exports = router;
