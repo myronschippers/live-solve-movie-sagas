@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
@@ -11,6 +11,8 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
+
+import rootReducer from './redux/reducers/_root.reducer';
 
 //
 // SAGAS for API calls
@@ -90,43 +92,45 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Used to store movies returned from the server
 // REDUCER STORING MOVIES
-const movies = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_MOVIES':
-            return action.payload;
-        default:
-            return state;
-    }
-}
+// const movies = (state = [], action) => {
+//     switch (action.type) {
+//         case 'SET_MOVIES':
+//             return action.payload;
+//         default:
+//             return state;
+//     }
+// }
 
-const details = (state = {}, action) => {
-    switch(action.type) {
-        case 'SET_DETAILS':
-            return action.payload;
-        default:
-            return state;
-    }
-}
+// const details = (state = {}, action) => {
+//     switch(action.type) {
+//         case 'SET_DETAILS':
+//             return action.payload;
+//         default:
+//             return state;
+//     }
+// }
 
 // Used to store the movie genres
 // REDUCER FOR STORING MOVIE GENRES
-const genres = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_GENRES':
-            return action.payload;
-        default:
-            return state;
-    }
-}
+// const genres = (state = [], action) => {
+//     switch (action.type) {
+//         case 'SET_GENRES':
+//             return action.payload;
+//         default:
+//             return state;
+//     }
+// }
 
 // Create one store that all components can use
 const storeInstance = createStore(
-    combineReducers({
-        // REDUCERS ARE REGISTERED
-        movies,
-        genres,
-        details,
-    }),
+    // combineReducers({
+    //     // REDUCERS ARE REGISTERED
+    //     movies,
+    //     genres,
+    //     details,
+    // }),
+    // replacing reducer registration with abstracted file
+    rootReducer,
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
