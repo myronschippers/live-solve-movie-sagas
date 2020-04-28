@@ -16,9 +16,13 @@ class MoviesList extends Component {
   }
 
   render() {
+    const limitedResults = this.props.store.movies.filter((item, index) => {
+      return index < 10;
+    });
+
     return (
       <div className="algnLeft">
-        {this.props.store.movies.map((item, index) => (
+        {limitedResults.map((item, index) => (
           <MoviesListItem key={index} item={item} />
         ))}
       </div>
