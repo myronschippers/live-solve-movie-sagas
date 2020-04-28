@@ -42,11 +42,25 @@ function* getMovie(action) {
     }
 }
 
+function* getMovieGenres(action) {
+    try {
+        const movieId = action.payload;
+        const response = yield axios.get(`/api/movies/genres/${movieId}`);
+        yield put({
+            type: 'SET_GENRES',
+            payload: response.data,
+        })
+    } catch(err) {
+        console.warn(err);
+    }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
     // REGISTER SAGAS HERE
     yield takeLatest('GET_ALL_MOVIES', getAllMovies);
     yield takeLatest('GET_MOVIE', getMovie);
+    yield takeLatest('GET_MOVIE_GENRES', getMovieGenres);
 }
 
 // Create sagaMiddleware
