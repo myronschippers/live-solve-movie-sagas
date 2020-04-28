@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MoviesLis from '../../MoviesList/MoviesLis';
 
 class HomePage extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class HomePage extends Component {
     return (
       <div>
         <h2>Home</h2>
+        <MoviesLis />
         {this.props.store.movies.map((item, index) => (
           <div
             key={index}
