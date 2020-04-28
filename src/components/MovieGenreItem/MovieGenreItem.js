@@ -6,8 +6,11 @@ class MovieGenreItem extends Component {
     // dispatch to a saga for deleting genre from database
     this.props.dispatch({
       type: 'DELETE_MOVIE_GENRE',
-      payload: {}
-    })
+      payload: {
+        movieGenreId: this.props.item.id,
+        movieId: this.props.item.movies_id,
+      }
+    });
   }
 
   render() {
