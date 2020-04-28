@@ -27,6 +27,12 @@ class HomePage extends Component {
             <div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
+              <ul>
+                {item.genre.filter((genreItemFilter) => (genreItemFilter !== null))
+                  .map((genreItem, genreIndex) => (
+                  <li key={genreIndex}>{genreItem}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
