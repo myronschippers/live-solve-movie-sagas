@@ -80,4 +80,18 @@ router.get('/genres/:id', (req, res) => {
     });
 });
 
+router.delete('/genres/:junctionId', (req, res) => {
+  const moviesGenresId = req.params.junctionId;
+  const queryString = `DELETE FROM "movies_genres" WHERE "id" = $1;`;
+
+  pool.query(queryString, [moviesGenresId])
+    .then((responseDb) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
