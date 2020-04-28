@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
+
 class EditPage extends Component {
   state = {
     title: '',
@@ -79,9 +81,7 @@ class EditPage extends Component {
           </div>
         </div>
 
-        <ul>
-          {this.props.store.genres.map((item, index) => <li key={index}>{item.name}</li>)}
-        </ul>
+        <MovieGenresEditor />
       </div>
     );
   }
