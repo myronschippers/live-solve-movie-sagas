@@ -32,7 +32,6 @@ router.get('/details/:id', (req, res) => {
     });
 });
 
-// TODO - create PUT for updating a single movie
 router.put('/edit/:id', (req, res) => {
   // update data for a single movie
   const queryText = `UPDATE "movies"
