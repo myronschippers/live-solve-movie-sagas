@@ -67,13 +67,11 @@ class EditPage extends Component {
               type="text"
               placeholder="New Title"
               onChange={this.changeMovieDetails('title')}
-              defaultValue={this.props.store.details.title}
             />
           </div>
           <div>
             <textarea
               onChange={this.changeMovieDetails('description')}
-              defaultValue={this.props.store.details.description}
             >
             </textarea>
           </div>
