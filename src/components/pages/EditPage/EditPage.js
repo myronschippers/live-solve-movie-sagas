@@ -29,6 +29,29 @@ class EditPage extends Component {
     this.props.history.push(`/details/${this.props.match.params.id}`)
   }
 
+  clickSaveMovieDetails = (event) => {
+    // dispatch to saga to make API call
+    let newDetails = {
+      ...this.state,
+      id: this.props.match.params.id
+    };
+
+    if (newDetails.title == null || newDetails.title === '') {
+      newDetails.title = this.props.store.details.title;
+    }
+
+    if (newDetails.description == null || newDetails.description === '') {
+      newDetails.description = this.props.store.details.description;
+    }
+
+    this.props.dispatch({
+      type: 'PUT_MOVIE',
+      payload: newDetails,
+    })
+    // navigate to the details page
+    this.props.history.push(`/details/${this.props.match.params.id}`);
+  }
+
   render() {
     return (
       <div>
@@ -36,7 +59,7 @@ class EditPage extends Component {
         <p>Selected ID: {this.props.match.params.id}</p>
         <div>
           <button onClick={this.clickCancel}>Cancel</button>
-          <button>Save</button>
+          <button onClick={this.clickSaveMovieDetails}>Save</button>
         </div>
 
         <div>
