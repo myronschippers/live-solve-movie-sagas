@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// TODO - Create delete endpoint
 router.delete('/:id', (req, res) => {
   const genreId = req.params.id;
   const queryString = `DELETE FROM "genres" WHERE "id" = $1;`;
@@ -32,6 +31,20 @@ router.delete('/:id', (req, res) => {
 });
 
 // add new genres
-router.post('/', (req, res) => {});
+router.post('/', (req, res) => {
+  const queryText = `INSERT INTO "genres" ("name")
+    VALUES ($1);`;
+
+  pool.query(queryText, [
+    req.body.name,
+  ])
+    .then((responseDb) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;
