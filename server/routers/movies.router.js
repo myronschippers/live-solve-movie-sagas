@@ -6,6 +6,16 @@ const router = express.Router();
 // TODO - create GET for all movies
 router.get('/', (req, res) => {
   // get all movie data
+  const queryText = `SELECT * FROM "movies" ORDER BY "title" ASC;`;
+
+  pool.query(queryText)
+    .then((responseDb) => {
+      res.send(responseDb.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
 });
 
 // TODO - create GET for movie details (a single movie)
