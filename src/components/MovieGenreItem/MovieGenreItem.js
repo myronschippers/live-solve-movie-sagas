@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 class MovieGenreItem extends Component {
   clickDeleteGenre = (event) => {
     // dispatch to a saga for deleting genre from database
-    console.log('CLICKED DELETE');
+    this.props.dispatch({
+      type: 'DELETE_MOVIE_GENRE',
+      payload: {}
+    })
   }
 
   render() {
