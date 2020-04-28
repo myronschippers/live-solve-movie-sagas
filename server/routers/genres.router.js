@@ -17,7 +17,19 @@ router.get('/', (req, res) => {
 });
 
 // TODO - Create delete endpoint
-router.delete('/:id', (req, res) => {});
+router.delete('/:id', (req, res) => {
+  const genreId = req.params.id;
+  const queryString = `DELETE FROM "genres" WHERE "id" = $1;`;
+
+  pool.query(queryString, [genreId])
+    .then((responseDb) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
 
 // add new genres
 router.post('/', (req, res) => {});
