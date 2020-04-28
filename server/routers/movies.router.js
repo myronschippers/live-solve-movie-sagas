@@ -3,7 +3,6 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// TODO - create GET for all movies
 router.get('/', (req, res) => {
   // get all movie data
   const queryText = `SELECT * FROM "movies" ORDER BY "title" ASC;`;
