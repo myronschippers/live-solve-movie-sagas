@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AddGenre from '../../AddGenre/AddGenre';
 import GenresList from '../../GenresList/GenresList';
+import LoginForm from '../../LoginForm/LoginForm';
+import LogoutButton from '../../LogoutButton/LogoutButton';
 
 class AdminPage extends Component {
   componentDidMount() {
@@ -14,13 +16,15 @@ class AdminPage extends Component {
   render() {
     let secureContent = (
       <div>
+        <div><LogoutButton /></div>
+
         <AddGenre />
         <GenresList />
       </div>
     );
 
     if (this.props.store.user.id == null) {
-      secureContent = 'NOT LOGGED IN';
+      secureContent = <LoginForm />;
     }
 
     return (

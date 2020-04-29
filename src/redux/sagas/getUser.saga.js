@@ -10,6 +10,9 @@ function* getGenres(action) {
       }); // put() is the same as this.props.dispatch()
   } catch(err) {
       console.warn(err);
+      yield put({
+        type: 'RESET_USER',
+    });
   }
 }
 
