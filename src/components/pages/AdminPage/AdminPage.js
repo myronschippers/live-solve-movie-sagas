@@ -5,14 +5,30 @@ import AddGenre from '../../AddGenre/AddGenre';
 import GenresList from '../../GenresList/GenresList';
 
 class AdminPage extends Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'GET_USER'
+    });
+  }
+
   render() {
+    let secureContent = (
+      <div>
+        <AddGenre />
+        <GenresList />
+      </div>
+    );
+
+    if (this.props.store.user.id == null) {
+      secureContent = 'NOT LOGGED IN';
+    }
+
     return (
       <div>
         <h2>Admin</h2>
         <Link to="/">Home Page</Link>
 
-        <AddGenre />
-        <GenresList />
+        {secureContent}
       </div>
     );
   }
