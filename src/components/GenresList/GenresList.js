@@ -10,9 +10,16 @@ class GenresList extends Component {
   }
 
   render() {
+    let errorMessage = null;
+
+    if (this.props.store.genresError.length > 0) {
+      errorMessage = this.props.store.genresError[0];
+    }
+
     return (
       <div>
         <h3>Available Genres</h3>
+        {errorMessage}
         <ul>
           {this.props.store.genres.map((item, index) => (
             <GenresListItem key={index} item={item} />

@@ -5,6 +5,7 @@ import movies from './movies.reducer';
 import genres from './genres.reducer';
 import details from './details.reducer';
 import movieGenres from './movieGenres.reducer';
+import genresError from './genresError.reducer';
 
 export default combineReducers({
   // REDUCERS ARE REGISTERED
@@ -12,4 +13,5 @@ export default combineReducers({
   genres,
   details,
   movieGenres,
+  genresError,
 });
