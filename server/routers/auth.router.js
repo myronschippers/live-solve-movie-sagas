@@ -18,7 +18,7 @@ router.get('/user', (req, res) => {
       id: credentials.id,
     })
   } else {
-    res.sendStatus(500);
+    res.sendStatus(401);
   }
 });
 
@@ -32,7 +32,7 @@ router.post('/login', (req, res) => {
     res.send(200);
   } else {
     credentials.isLoggedIn = false;
-    res.send(500);
+    res.send(401);
   }
 });
 
