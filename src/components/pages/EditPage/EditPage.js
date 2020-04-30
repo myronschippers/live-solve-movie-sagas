@@ -58,13 +58,12 @@ class EditPage extends Component {
   render() {
     return (
       <div className="algnLeft">
-        <AppHeader title="Edit">
+        <AppHeader
+          title="Edit"
+          backHandler={this.clickCancel}
+        >
           <button onClick={this.clickSaveMovieDetails}>Save</button>
         </AppHeader>
-
-        <div>
-          <button onClick={this.clickCancel}>Cancel</button>
-        </div>
 
         <div>
           <div>

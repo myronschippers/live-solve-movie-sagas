@@ -7,6 +7,8 @@ import { withStyles, createStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 
 const customStyles = theme =>
   createStyles({
@@ -26,10 +28,21 @@ class AppHeader extends Component {
       classes
     } = this.props;
 
+    let backArrowContent = null;
+
+    if (this.props.backHandler != null) {
+      backArrowContent = (
+        <IconButton onClick={this.props.backHandler}>
+          <ArrowBackIos fontSize="large" />
+        </IconButton>
+      );
+    }
+
     return (
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
+            {backArrowContent}
             <Typography
               variant="h4"
               component="h1"
