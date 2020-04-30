@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import AppHeader from '../../AppHeader/AppHeader';
+
 class DetailsPage extends Component {
   componentDidMount() {
     // dispatch to saga to call server API
@@ -25,14 +27,15 @@ class DetailsPage extends Component {
   render() {
     return (
       <div className="algnLeft">
-        <h2>Details</h2>
+        <AppHeader title={this.props.store.details.title}>
+          <button onClick={this.clickEditMovie}>Edit</button>
+        </AppHeader>
 
         <div>
           <button onClick={this.clickBackToList}>Back to List</button>
-          <button onClick={this.clickEditMovie}>Edit</button>
         </div>
 
-        <h3>{this.props.store.details.title}</h3>
+        {/* <h3>{this.props.store.details.title}</h3> */}
         <p>{this.props.store.details.description}</p>
 
         <ul>

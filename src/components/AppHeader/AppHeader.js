@@ -8,13 +8,16 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
 
-const customStyles = theme => createStyles({
-  root: {
-    flexGrow: 1,
-  },
-  title: {
-    flexGrow: 2,
-  },
+const customStyles = theme =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+      textAlign: 'left',
+      margin: `0 0 15px`,
+    },
+    title: {
+      flexGrow: 2,
+    },
 });
 
 class AppHeader extends Component {
