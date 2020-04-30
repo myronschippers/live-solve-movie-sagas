@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// material component imports
+import Button from '@material-ui/core/Button';
+
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
 import AppHeader from '../../AppHeader/AppHeader';
 
@@ -62,7 +65,14 @@ class EditPage extends Component {
           title="Edit"
           backHandler={this.clickCancel}
         >
-          <button onClick={this.clickSaveMovieDetails}>Save</button>
+          <Button
+            onClick={this.clickSaveMovieDetails}
+            variant="outlined"
+            color="inherit"
+            size="large"
+          >
+            Save
+          </Button>
         </AppHeader>
 
         <div>

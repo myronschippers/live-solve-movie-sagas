@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// material component imports
+import Button from '@material-ui/core/Button';
+
 import AppHeader from '../../AppHeader/AppHeader';
 
 class DetailsPage extends Component {
@@ -31,7 +34,14 @@ class DetailsPage extends Component {
           title={this.props.store.details.title}
           backHandler={this.clickBackToList}
         >
-          <button onClick={this.clickEditMovie}>Edit</button>
+          <Button
+            onClick={this.clickEditMovie}
+            variant="outlined"
+            color="inherit"
+            size="large"
+          >
+            Edit
+          </Button>
         </AppHeader>
 
         <p>{this.props.store.details.description}</p>
