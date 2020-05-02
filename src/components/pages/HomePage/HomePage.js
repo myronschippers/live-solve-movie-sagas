@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 // app components
 import MoviesList from '../../MoviesList/MoviesList';
@@ -14,8 +13,6 @@ class HomePage extends Component {
         <AppHeader title="Movies">
           <MovieSearchField />
         </AppHeader>
-
-        <Link to="/admin">Admin Page</Link>
 
         <MoviesList />
       </div>
