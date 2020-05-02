@@ -53,7 +53,7 @@ class MoviesList extends Component {
           type="text"
           onChange={this.changeSearch}
         /> */}
-        <Grid container>
+        <Grid container spacing={2}>
           {limitedResults.map((item, index) => (
             <Grid item xs={4}>
               <MoviesListItem key={index} item={item} />
