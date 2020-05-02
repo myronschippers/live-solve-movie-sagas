@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
+// material-ui components
+import Container from '@material-ui/core/Container';
+
+// Custom Components
 import MoviesListItem from '../MoviesListItem/MoviesListItem';
 
 class MoviesList extends Component {
@@ -41,7 +46,7 @@ class MoviesList extends Component {
     });
 
     return (
-      <div className="algnLeft">
+      <Container maxWidth={false}>
         {/* <input
           placeholder="Search"
           type="text"
@@ -50,7 +55,7 @@ class MoviesList extends Component {
         {limitedResults.map((item, index) => (
           <MoviesListItem key={index} item={item} />
         ))}
-      </div>
+      </Container>
     );
   }
 }
