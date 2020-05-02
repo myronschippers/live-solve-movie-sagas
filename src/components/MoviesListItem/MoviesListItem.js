@@ -9,7 +9,8 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardMedia
+  CardMedia,
+  Typography,
 } from '@material-ui/core';
 
 // create custom material styling
@@ -50,14 +51,12 @@ class MoviesListItem extends Component {
             title={item.title}
           />
           <CardContent>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <ul>
-              {item.genre.filter((genreItemFilter) => (genreItemFilter !== null))
-                .map((genreItem, genreIndex) => (
-                <li key={genreIndex}>{genreItem}</li>
-              ))}
-            </ul>
+            <Typography
+              component="h3"
+              variant="h6"
+            >
+              {item.title}
+            </Typography>
           </CardContent>
         </CardActionArea>
       </Card>
