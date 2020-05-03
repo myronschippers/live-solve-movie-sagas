@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// custom material-ui styling dependencies
+import { withStyles, createStyles } from '@material-ui/core/styles';
 // material component imports
 import {
   Button,
   Container,
   Grid,
   Typography,
+  Chip,
 } from '@material-ui/core';
 
 import AppHeader from '../../AppHeader/AppHeader';
+
+const customStyles = theme =>
+  createStyles({
+    root: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      flexWrap: 'wrap',
+      '& > *': {
+        margin: theme.spacing(0.5),
+      },
+      margin: 0,
+      padding: 0,
+      listStyle: 'none',
+    },
+  });
 
 class DetailsPage extends Component {
   componentDidMount() {
@@ -33,6 +51,8 @@ class DetailsPage extends Component {
   }
 
   render() {
+    const { classes } = this.props;
+
     return (
       <div className="algnLeft">
         <AppHeader
@@ -74,8 +94,8 @@ class DetailsPage extends Component {
                 {this.props.store.details.description}
               </Typography>
 
-              <ul>
-                {this.props.store.movieGenres.map((item, index) => <li key={index}>{item.name}</li>)}
+              <ul className={classes.root}>
+                {this.props.store.movieGenres.map((item, index) => <li key={index}><Chip label={item.name} variant="outlined" color="primary" /></li>)}
               </ul>
             </Grid>
           </Grid>
@@ -87,4 +107,6 @@ class DetailsPage extends Component {
 
 const mapStoreToProps = store => ({ store });
 
-export default connect(mapStoreToProps)(DetailsPage);
+export default withStyles(customStyles)(
+  connect(mapStoreToProps)(DetailsPage)
+);
