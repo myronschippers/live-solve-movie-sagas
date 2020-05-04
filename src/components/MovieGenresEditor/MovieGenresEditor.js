@@ -131,17 +131,6 @@ class MovieGenresEditor extends Component {
 
     return (
       <div>
-        {/* <h4>Movie Genre(s)</h4> */}
-        {/* <div>
-          <select onChange={this.changeSelectedGenre}>
-            <option value="">Select a Genre</option>
-            {this.props.store.genres.map((item, index) => (
-              <option key={index} value={item.id}>{item.name}</option>
-            ))}
-          </select>
-          <button onClick={this.clickAddGenre}>Add Genre</button>
-        </div> */}
-
         <Paper
           component="div"
           variant="outlined"
@@ -202,12 +191,6 @@ class MovieGenresEditor extends Component {
               </FormControl>
             </Box>
 
-            {/* <select onChange={this.changeSelectedGenre}>
-              <option value="">Select a Genre</option>
-              {this.props.store.genres.map((item, index) => (
-                <option key={index} value={item.id}>{item.name}</option>
-              ))}
-            </select> */}
             <Button
               onClick={this.clickAddGenre}
               variant="contained"

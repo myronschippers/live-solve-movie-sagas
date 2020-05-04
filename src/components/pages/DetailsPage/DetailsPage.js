@@ -19,17 +19,6 @@ import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
 
 const customStyles = theme =>
   createStyles({
-    // root: {
-    //   display: 'flex',
-    //   justifyContent: 'flex-start',
-    //   flexWrap: 'wrap',
-    //   '& > *': {
-    //     margin: theme.spacing(0.5),
-    //   },
-    //   margin: 0,
-    //   padding: theme.spacing(1),
-    //   listStyle: 'none',
-    // },
     poster: {
       width: '100%',
     },
@@ -103,13 +92,6 @@ class DetailsPage extends Component {
                 </Typography>
               </Box>
 
-              {/* <Paper
-                component="ul"
-                variant="outlined"
-                className={classes.root}
-              >
-                {this.props.store.movieGenres.map((item, index) => <li key={index}><Chip label={item.name} variant="outlined" color="primary" /></li>)}
-              </Paper> */}
               <MovieGenresEditor movieId={this.props.match.params.id} />
             </Grid>
           </Grid>
