@@ -7,14 +7,16 @@ import { withStyles, createStyles } from '@material-ui/core/styles';
 // material-ui components
 import {
   Paper,
-  Chip,
+  IconButton,
 } from '@material-ui/core';
+import { AddCircle } from '@material-ui/icons';
 
 const customStyles = theme =>
   createStyles({
     root: {
       display: 'flex',
       justifyContent: 'flex-start',
+      alignItems: 'center',
       flexWrap: 'wrap',
       '& > *': {
         margin: theme.spacing(0.5),
@@ -87,6 +89,11 @@ class MovieGenresEditor extends Component {
           {this.props.store.movieGenres.map((item, index) => (
             <MovieGenreItem key={index} item={item} />
           ))}
+          <li>
+            <IconButton onClick={this.clickAddGenre}>
+              <AddCircle />
+            </IconButton>
+          </li>
         </Paper>
       </div>
     );
