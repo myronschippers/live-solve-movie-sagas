@@ -83,12 +83,6 @@ class EditPage extends Component {
         <Container maxWidth={false}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              {/* <input
-                type="text"
-                placeholder="New Title"
-                onChange={this.changeMovieDetails('title')}
-                defaultValue={this.props.store.details.title}
-              /> */}
               <TextField
                 type="text"
                 placeholder="New Title"
@@ -102,11 +96,6 @@ class EditPage extends Component {
               />
             </Grid>
             <Grid item xs={12}>
-              {/* <textarea
-                onChange={this.changeMovieDetails('description')}
-                defaultValue={this.props.store.details.description}
-              >
-              </textarea> */}
               <TextField
                 onChange={this.changeMovieDetails('description')}
                 defaultValue={this.props.store.details.description}
