@@ -16,8 +16,14 @@ import {
   Select,
   MenuItem,
   Box,
+  Snackbar,
 } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 import { AddCircle } from '@material-ui/icons';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const customStyles = theme =>
   createStyles({
@@ -54,6 +60,7 @@ class MovieGenresEditor extends Component {
   state = {
     selectedGenreId: 0,
     isAddGenreModalOpen: false,
+    isMessageOpen: false,
   }
 
   componentDidMount() {
@@ -74,7 +81,7 @@ class MovieGenresEditor extends Component {
     if (this.state.selectedGenreId === ''
       || this.state.selectedGenreId === 0
     ) {
-      alert('You must select a genre to add it.');
+      this.openMessage();
       return;
     }
 
@@ -100,6 +107,20 @@ class MovieGenresEditor extends Component {
   openAddGenreModal = () => {
     this.setState({
       isAddGenreModalOpen: true,
+    })
+  }
+
+  // open message alert
+  openMessage = () => {
+    this.setState({
+      isMessageOpen: true,
+    })
+  }
+
+  // close message alert
+  closeMessage = () => {
+    this.setState({
+      isMessageOpen: false,
     })
   }
 
@@ -197,6 +218,20 @@ class MovieGenresEditor extends Component {
             </Button>
           </Paper>
         </Modal>
+
+        <Snackbar
+          open={this.state.isMessageOpen}
+          autoHideDuration={6000}
+          onClose={this.closeMessage}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center'
+          }}
+        >
+          <Alert onClose={this.closeMessage} severity="error">
+          You must select a genre to add it.
+          </Alert>
+        </Snackbar>
       </div>
     );
   }
