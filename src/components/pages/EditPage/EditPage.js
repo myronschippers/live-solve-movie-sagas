@@ -8,6 +8,7 @@ import {
   TextField,
   Grid,
   LinearProgress,
+  Box,
 } from '@material-ui/core';
 
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
@@ -118,7 +119,9 @@ class EditPage extends Component {
         </AppHeader>
 
         <Container maxWidth={false}>
-          {movieForm}
+          <Box mb={4}>
+            {movieForm}
+          </Box>
 
           <MovieGenresEditor movieId={this.props.match.params.id} />
         </Container>
