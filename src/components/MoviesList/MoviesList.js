@@ -48,11 +48,6 @@ class MoviesList extends Component {
 
     return (
       <Container maxWidth={false}>
-        {/* <input
-          placeholder="Search"
-          type="text"
-          onChange={this.changeSearch}
-        /> */}
         <Grid container spacing={2}>
           {limitedResults.map((item, index) => (
             <Grid

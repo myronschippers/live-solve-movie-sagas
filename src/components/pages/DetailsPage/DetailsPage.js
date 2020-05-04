@@ -9,8 +9,6 @@ import {
   Container,
   Grid,
   Typography,
-  Chip,
-  Paper,
   Box,
 } from '@material-ui/core';
 
