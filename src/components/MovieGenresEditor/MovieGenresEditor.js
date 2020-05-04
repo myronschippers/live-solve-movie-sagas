@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieGenreItem from '../MovieGenreItem/MovieGenreItem';
 
+// material-ui custom styling dependencies
+import { withStyles, createStyles } from '@material-ui/core/styles';
+// material-ui components
+import {
+  Paper,
+  Chip,
+} from '@material-ui/core';
+
+const customStyles = theme =>
+  createStyles({
+    root: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      flexWrap: 'wrap',
+      '& > *': {
+        margin: theme.spacing(0.5),
+      },
+      margin: 0,
+      padding: theme.spacing(1),
+      listStyle: 'none',
+    },
+  });
+
 class MovieGenresEditor extends Component {
   state = {
     selectedGenreId: 0,
@@ -39,6 +62,10 @@ class MovieGenresEditor extends Component {
   }
 
   render() {
+    const {
+      classes
+    } = this.props;
+
     return (
       <div>
         <h4>Movie Genre(s)</h4>
@@ -52,15 +79,21 @@ class MovieGenresEditor extends Component {
           <button onClick={this.clickAddGenre}>Add Genre</button>
         </div>
 
-        <ul>
+        <Paper
+          component="ul"
+          variant="outlined"
+          className={classes.root}
+        >
           {this.props.store.movieGenres.map((item, index) => (
             <MovieGenreItem key={index} item={item} />
           ))}
-        </ul>
+        </Paper>
       </div>
     );
   }
 }
 
 const mapStateToProps = store => ({ store });
-export default connect(mapStateToProps)(MovieGenresEditor);
+export default withStyles(customStyles)(
+  connect(mapStateToProps)(MovieGenresEditor)
+);
