@@ -7,6 +7,7 @@ import {
   Container,
   TextField,
   Grid,
+  LinearProgress,
 } from '@material-ui/core';
 
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
@@ -64,24 +65,14 @@ class EditPage extends Component {
   }
 
   render() {
-    return (
-      <div className="algnLeft">
-        <AppHeader
-          title="Edit"
-          backHandler={this.clickCancel}
-        >
-          <Button
-            onClick={this.clickSaveMovieDetails}
-            variant="outlined"
-            color="inherit"
-            size="large"
-          >
-            Save
-          </Button>
-        </AppHeader>
+    let movieForm = <LinearProgress />
 
-        <Container maxWidth={false}>
-          <Grid container spacing={2}>
+    if (this.props.match.params.id != null
+      && this.props.store.details.title != null
+      && this.props.store.details.description != null
+    ) {
+      movieForm = (
+        <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <TextField
                 type="text"
@@ -108,6 +99,26 @@ class EditPage extends Component {
               />
             </Grid>
           </Grid>
+      );
+    }
+    return (
+      <div className="algnLeft">
+        <AppHeader
+          title="Edit"
+          backHandler={this.clickCancel}
+        >
+          <Button
+            onClick={this.clickSaveMovieDetails}
+            variant="outlined"
+            color="inherit"
+            size="large"
+          >
+            Save
+          </Button>
+        </AppHeader>
+
+        <Container maxWidth={false}>
+          {movieForm}
 
           <MovieGenresEditor movieId={this.props.match.params.id} />
         </Container>
