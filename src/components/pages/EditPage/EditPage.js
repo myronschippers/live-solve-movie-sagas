@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // material component imports
-import Button from '@material-ui/core/Button';
+import {
+  Button,
+  Container,
+  TextField,
+  Grid,
+} from '@material-ui/core';
 
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
 import AppHeader from '../../AppHeader/AppHeader';
@@ -75,25 +80,48 @@ class EditPage extends Component {
           </Button>
         </AppHeader>
 
-        <div>
-          <div>
-            <input
-              type="text"
-              placeholder="New Title"
-              onChange={this.changeMovieDetails('title')}
-              defaultValue={this.props.store.details.title}
-            />
-          </div>
-          <div>
-            <textarea
-              onChange={this.changeMovieDetails('description')}
-              defaultValue={this.props.store.details.description}
-            >
-            </textarea>
-          </div>
-        </div>
+        <Container maxWidth={false}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              {/* <input
+                type="text"
+                placeholder="New Title"
+                onChange={this.changeMovieDetails('title')}
+                defaultValue={this.props.store.details.title}
+              /> */}
+              <TextField
+                type="text"
+                placeholder="New Title"
+                onChange={this.changeMovieDetails('title')}
+                defaultValue={this.props.store.details.title}
 
-        <MovieGenresEditor movieId={this.props.match.params.id} />
+                fullWidth
+                variant="outlined"
+                label="Movie Title"
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              {/* <textarea
+                onChange={this.changeMovieDetails('description')}
+                defaultValue={this.props.store.details.description}
+              >
+              </textarea> */}
+              <TextField
+                onChange={this.changeMovieDetails('description')}
+                defaultValue={this.props.store.details.description}
+
+                fullWidth
+                variant="outlined"
+                label="Movie Description"
+                multiline
+                required
+              />
+            </Grid>
+          </Grid>
+
+          <MovieGenresEditor movieId={this.props.match.params.id} />
+        </Container>
       </div>
     );
   }

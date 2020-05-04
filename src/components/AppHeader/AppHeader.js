@@ -17,7 +17,7 @@ const customStyles = theme =>
     root: {
       flexGrow: 1,
       textAlign: 'left',
-      margin: `0 0 15px`,
+      margin: `0 0 30px`,
     },
     title: {
       flexGrow: 2,
