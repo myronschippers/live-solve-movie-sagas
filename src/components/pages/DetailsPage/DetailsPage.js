@@ -10,6 +10,8 @@ import {
   Grid,
   Typography,
   Chip,
+  Paper,
+  Box,
 } from '@material-ui/core';
 
 import AppHeader from '../../AppHeader/AppHeader';
@@ -24,8 +26,11 @@ const customStyles = theme =>
         margin: theme.spacing(0.5),
       },
       margin: 0,
-      padding: 0,
+      padding: theme.spacing(1),
       listStyle: 'none',
+    },
+    poster: {
+      width: '100%',
     },
   });
 
@@ -73,6 +78,7 @@ class DetailsPage extends Component {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4} sm={3}>
               <img
+                className={classes.poster}
                 src={this.props.store.details.poster}
                 alt={`${this.props.store.details.title}, movie poster`}
               />
@@ -86,17 +92,23 @@ class DetailsPage extends Component {
                 {this.props.store.details.title}
               </Typography>
 
-              <Typography
-                component="p"
-                variant="body1"
-                gutterBottom={true}
-              >
-                {this.props.store.details.description}
-              </Typography>
+              <Box mb={3}>
+                <Typography
+                  component="p"
+                  variant="body1"
+                  gutterBottom={true}
+                >
+                  {this.props.store.details.description}
+                </Typography>
+              </Box>
 
-              <ul className={classes.root}>
+              <Paper
+                component="ul"
+                variant="outlined"
+                className={classes.root}
+              >
                 {this.props.store.movieGenres.map((item, index) => <li key={index}><Chip label={item.name} variant="outlined" color="primary" /></li>)}
-              </ul>
+              </Paper>
             </Grid>
           </Grid>
         </Container>
