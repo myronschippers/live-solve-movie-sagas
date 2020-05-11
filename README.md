@@ -17,11 +17,19 @@ Displays a listing of movies with specific information. The information for each
 
 ![Home Page, post styling](/wireframes/MoviesList.png)
 
+**After Styling:**
+
+![Home Page, post styling](/wireframes/MoviesList.png)
+
 #### Details
 
 <img src="/wireframes/details.png" alt="Details Page" />
 
 **After Styling:**
+
+![Details Page, post styling](/wireframes/MovieDetails.png)
+
+**At Mobile:**
 
 ![Details Page, post styling](/wireframes/MovieDetails.png)
 
@@ -32,6 +40,10 @@ Displays a listing of movies with specific information. The information for each
 **After Styling:**
 
 ![Edit Page, post styling](/wireframes/MovieEdit.png)
+
+**At Mobile:**
+
+![Edit Page, post styling](/wireframes/MovieEdit-mobile.png)
 
 
 ### Prerequisites
