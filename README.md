@@ -13,13 +13,25 @@ Displays a listing of movies with specific information. The information for each
 
 <img src="/wireframes/home.png" alt="Home Page" />
 
+**After Styling:**
+
+![Home Page, post styling](/wireframes/MoviesList.png)
+
 #### Details
 
 <img src="/wireframes/details.png" alt="Details Page" />
 
+**After Styling:**
+
+![Details Page, post styling](/wireframes/MovieDetails.png)
+
 #### Edit
 
 <img src="/wireframes/edit.png" alt="Edit Page" />
+
+**After Styling:**
+
+![Edit Page, post styling](/wireframes/MovieEdit.png)
 
 
 ### Prerequisites
