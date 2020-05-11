@@ -17,9 +17,9 @@ Displays a listing of movies with specific information. The information for each
 
 ![Home Page, post styling](/wireframes/MoviesList.png)
 
-**After Styling:**
+**At Mobile:**
 
-![Home Page, post styling](/wireframes/MoviesList.png)
+![Home Page, post styling](/wireframes/MoviesList-mobile.png)
 
 #### Details
 
@@ -31,7 +31,7 @@ Displays a listing of movies with specific information. The information for each
 
 **At Mobile:**
 
-![Details Page, post styling](/wireframes/MovieDetails.png)
+![Details Page, post styling](/wireframes/MovieDetails-mobile.png)
 
 #### Edit
 
