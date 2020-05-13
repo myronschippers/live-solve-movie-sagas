@@ -29,6 +29,9 @@ const theme = createMuiTheme({
     // warning: '',
     // info: '',
     success: lightGreen,
+    contrastThreshold: 2,
+    // tonalOffset: 0.05,
+    // more custom palette settings
     background: {
       paper: '#222428',
     },
