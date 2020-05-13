@@ -65,7 +65,13 @@ const newTheme = createMuiTheme({
       colorDefault: {
         backgroundColor: '#1a1c1f',
       }
-    }
+    },
+    MuiButton: {
+      // rule name
+      root: {
+        borderRadius: '20px',
+      }
+    },
   }
 });
 
