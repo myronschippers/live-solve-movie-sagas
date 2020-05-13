@@ -64,7 +64,7 @@ class DetailsPage extends Component {
 
         <Container maxWidth={false}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={4} sm={3}>
+            <Grid item xs={12} sm={4} md={3}>
               <img
                 className={classes.poster}
                 src={this.props.store.details.poster}
