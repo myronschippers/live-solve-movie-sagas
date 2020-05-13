@@ -125,6 +125,56 @@ class EditPage extends Component {
 
           <MovieGenresEditor movieId={this.props.match.params.id} />
         </Container>
+
+        <div>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            Sample: Primary
+          </Button>
+
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+          >
+            Sample: Secondary
+          </Button>
+
+          <Button
+            variant="contained"
+            color="error"
+            size="large"
+          >
+            Sample: Error
+          </Button>
+
+          <Button
+            variant="contained"
+            color="warning"
+            size="large"
+          >
+            Sample: Warning
+          </Button>
+
+          <Button
+            variant="contained"
+            color="info"
+            size="large"
+          >
+            Sample: Info
+          </Button>
+
+          <Button
+            variant="contained"
+            color="Success"
+            size="large"
+          >
+            Sample: Success
+          </Button>
+        </div>
       </div>
     );
   }

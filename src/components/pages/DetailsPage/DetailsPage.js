@@ -76,6 +76,7 @@ class DetailsPage extends Component {
                 component="h2"
                 variant="h4"
                 gutterBottom={true}
+                color="textPrimary"
               >
                 {this.props.store.details.title}
               </Typography>
@@ -85,6 +86,7 @@ class DetailsPage extends Component {
                   component="p"
                   variant="body1"
                   gutterBottom={true}
+                  color="textPrimary"
                 >
                   {this.props.store.details.description}
                 </Typography>

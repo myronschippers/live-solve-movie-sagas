@@ -22,8 +22,8 @@ class MovieGenreItem extends Component {
       <li>
         <Chip
           label={item.name}
-          variant="outlined"
-          color="primary"
+          variant="default"
+          color="secondary"
           onDelete={this.clickDeleteGenre}
         />
       </li>
