@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// material-ui custom styling dependencies
+import { withStyles, createStyles } from '@material-ui/core/styles';
 // material component imports
 import {
   Button,
@@ -9,10 +11,18 @@ import {
   Grid,
   LinearProgress,
   Box,
+  Paper,
 } from '@material-ui/core';
 
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
 import AppHeader from '../../AppHeader/AppHeader';
+
+const customStyles = theme =>
+  createStyles({
+    paperBlock: {
+      padding: theme.spacing(4),
+    },
+  });
 
 class EditPage extends Component {
   state = {
@@ -102,6 +112,10 @@ class EditPage extends Component {
           </Grid>
       );
     }
+
+    const {
+      classes
+    } = this.props;
     return (
       <div className="algnLeft">
         <AppHeader
@@ -120,61 +134,17 @@ class EditPage extends Component {
 
         <Container maxWidth={false}>
           <Box mb={4}>
-            {movieForm}
+            <Paper
+              className={classes.paperBlock}
+              component="div"
+              variant="outlined"
+            >
+              {movieForm}
+            </Paper>
           </Box>
 
           <MovieGenresEditor movieId={this.props.match.params.id} />
         </Container>
-
-        <div>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-          >
-            Sample: Primary
-          </Button>
-
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-          >
-            Sample: Secondary
-          </Button>
-
-          <Button
-            variant="contained"
-            color="error"
-            size="large"
-          >
-            Sample: Error
-          </Button>
-
-          <Button
-            variant="contained"
-            color="warning"
-            size="large"
-          >
-            Sample: Warning
-          </Button>
-
-          <Button
-            variant="contained"
-            color="info"
-            size="large"
-          >
-            Sample: Info
-          </Button>
-
-          <Button
-            variant="contained"
-            color="Success"
-            size="large"
-          >
-            Sample: Success
-          </Button>
-        </div>
       </div>
     );
   }
@@ -182,4 +152,4 @@ class EditPage extends Component {
 
 const mapStoreToProps = store => ({ store });
 
-export default connect(mapStoreToProps)(EditPage);
+export default withStyles(customStyles)(connect(mapStoreToProps)(EditPage));

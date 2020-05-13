@@ -30,7 +30,8 @@ const theme = createMuiTheme({
       primary: '#efefef',
       secondary: '',
       disabled: '',
-    }
+    },
+    divider: '#000000',
   }
 });
 
