@@ -7,6 +7,7 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/indigo';
 import amber from '@material-ui/core/colors/amber';
 import pink from '@material-ui/core/colors/pink';
+import lightGreen from '@material-ui/core/colors/lightGreen';
 
 // PAGE COMPONENTS
 import DetailsPage from '../pages/DetailsPage/DetailsPage';
@@ -17,12 +18,17 @@ import AdminPage from '../pages/AdminPage/AdminPage';
 const theme = createMuiTheme({
   palette: {
     type: 'dark',
-    primary: indigo,
+    primary: {
+      // light: '',
+      main: '#1947ce',
+      // dark: '',
+      // contrastText: '#ea80fc',
+    },
     secondary: amber,
     error: pink,
     // warning: '',
     // info: '',
-    // success: '',
+    success: lightGreen,
     background: {
       paper: '#222428',
     },

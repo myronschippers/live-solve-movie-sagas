@@ -46,7 +46,9 @@ class AppHeader extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar
+          position="static"
+        >
           <Toolbar>
             {backArrowContent}
             <div className={classes.title}>
