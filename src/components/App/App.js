@@ -33,7 +33,7 @@ const theme = createMuiTheme({
     // tonalOffset: 0.05,
     // more custom palette settings
     background: {
-      paper: '#222428',
+      paper: '#1a1c1f',
     },
     text: {
       primary: '#efefef',
@@ -41,6 +41,16 @@ const theme = createMuiTheme({
       disabled: '',
     },
     divider: '#000000',
+  },
+  overrides: {
+    // Stylesheet Name for tour MUI component
+    MuiPaper: {
+      // select the "rule name" for adjustments
+      rounded: {
+        // Add CSS Property Rules
+        borderRadius: '20px',
+      }
+    }
   }
 });
 
