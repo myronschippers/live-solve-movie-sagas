@@ -9,7 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
+import SettingsApplications from '@material-ui/icons/SettingsApplications';
 import Link from '@material-ui/core/Link';
 
 const customStyles = theme =>
@@ -66,7 +68,9 @@ class AppHeader extends Component {
                 color="inherit"
                 href="#/admin"
               >
-                Admin Page
+                <Tooltip title="Admin">
+                  <SettingsApplications />
+                </Tooltip>
               </Link>
             </div>
             <div>
