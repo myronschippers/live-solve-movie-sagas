@@ -29,7 +29,7 @@ const newTheme = createMuiTheme({
     // warning: '',
     // info: '',
     success: lightGreen,
-    contrastThreshold: 2,
+    contrastThreshold: 4,
     // tonalOffset: 0.05,
     // more custom palette settings
     background: {
@@ -37,8 +37,8 @@ const newTheme = createMuiTheme({
     },
     text: {
       primary: '#efefef',
-      secondary: '',
-      disabled: '',
+      // secondary: '',
+      // disabled: '',
     },
     divider: '#000000',
   },
@@ -59,6 +59,13 @@ const newTheme = createMuiTheme({
         borderRadius: '15px 15px 15px 5px',
       }
     },
+    // updating base header look
+    MuiAppBar: {
+      // rule names
+      colorDefault: {
+        backgroundColor: '#434752',
+      }
+    }
   }
 });
 

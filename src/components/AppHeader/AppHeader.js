@@ -38,7 +38,7 @@ class AppHeader extends Component {
 
     if (this.props.backHandler != null) {
       backArrowContent = (
-        <IconButton onClick={this.props.backHandler}>
+        <IconButton color="secondary" onClick={this.props.backHandler}>
           <ArrowBackIos fontSize="large" />
         </IconButton>
       );
@@ -47,6 +47,7 @@ class AppHeader extends Component {
     return (
       <div className={classes.root}>
         <AppBar
+          color="default"
           position="static"
         >
           <Toolbar>
@@ -55,7 +56,7 @@ class AppHeader extends Component {
               <Typography
                 variant="h4"
                 component="h1"
-                color="inherit"
+                color="secondary"
                 className={classes.primaryHdg}
               >
                 {this.props.title}
