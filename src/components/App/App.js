@@ -15,7 +15,7 @@ import HomePage from '../pages/HomePage/HomePage';
 import EditPage from '../pages/EditPage/EditPage';
 import AdminPage from '../pages/AdminPage/AdminPage';
 
-const theme = createMuiTheme({
+const newTheme = createMuiTheme({
   palette: {
     type: 'dark',
     primary: {
@@ -50,7 +50,15 @@ const theme = createMuiTheme({
         // Add CSS Property Rules
         borderRadius: '20px',
       }
-    }
+    },
+    // making adjustments to the Card component
+    MuiCardMedia: {
+      root: {
+        // CSS properties
+        margin: '10px 10px 0',
+        borderRadius: '15px 15px 15px 5px',
+      }
+    },
   }
 });
 
@@ -58,7 +66,7 @@ class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={newTheme}>
         <div>
           <Router>
             <Route exact path="/" component={HomePage} />
