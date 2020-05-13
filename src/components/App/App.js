@@ -63,7 +63,7 @@ const newTheme = createMuiTheme({
     MuiAppBar: {
       // rule names
       colorDefault: {
-        backgroundColor: '#434752',
+        backgroundColor: '#1a1c1f',
       }
     }
   }

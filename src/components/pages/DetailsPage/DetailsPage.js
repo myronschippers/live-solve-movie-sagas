@@ -54,9 +54,9 @@ class DetailsPage extends Component {
         >
           <Button
             onClick={this.clickEditMovie}
-            variant="outlined"
-            color="inherit"
-            size="large"
+            variant="contained"
+            color="primary"
+            size="medium"
           >
             Edit
           </Button>

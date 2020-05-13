@@ -124,9 +124,9 @@ class EditPage extends Component {
         >
           <Button
             onClick={this.clickSaveMovieDetails}
-            variant="outlined"
-            color="inherit"
-            size="large"
+            variant="contained"
+            color="primary"
+            size="medium"
           >
             Save
           </Button>
