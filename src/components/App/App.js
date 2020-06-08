@@ -4,7 +4,6 @@ import './App.css';
 
 // material-ui theme dependencies
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import indigo from '@material-ui/core/colors/indigo';
 import amber from '@material-ui/core/colors/amber';
 import pink from '@material-ui/core/colors/pink';
 import lightGreen from '@material-ui/core/colors/lightGreen';
