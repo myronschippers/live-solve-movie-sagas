@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import classNames from "classnames";
 
 // custom material-ui styling dependencies
 import { withStyles, createStyles } from '@material-ui/core/styles';
@@ -15,11 +16,22 @@ import {
 import AppHeader from '../../AppHeader/AppHeader';
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
 
+// material-kit
+import GridContainer from '../../../material-kit/components/Grid/GridContainer.js';
+import GridItem from '../../../material-kit/components/Grid/GridItem.js';
+import Parallax from '../../../material-kit/components/Parallax/Parallax.js';
+// material-kit styling
+import basicStyles from "../../../material-kit/assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
+import styles from '../../../material-kit/assets/jss/material-kit-react/views/components.js';
+import heroImage from '../../../assets/images/filming.jpg';
+
 const customStyles = theme =>
   createStyles({
     poster: {
       width: '100%',
     },
+    ...basicStyles,
+    ...styles,
   });
 
 class DetailsPage extends Component {
@@ -49,7 +61,7 @@ class DetailsPage extends Component {
     return (
       <div className="algnLeft">
         <AppHeader
-          title="Details"
+          title="Movie Saga"
           backHandler={this.clickBackToList}
         >
           <Button
@@ -62,40 +74,58 @@ class DetailsPage extends Component {
           </Button>
         </AppHeader>
 
-        <Container maxWidth={false}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={4} md={3}>
-              <img
-                className={classes.poster}
-                src={this.props.store.details.poster}
-                alt={`${this.props.store.details.title}, movie poster`}
-              />
-            </Grid>
-            <Grid item xs={12} sm={8} md={9}>
-              <Typography
-                component="h2"
-                variant="h4"
-                gutterBottom={true}
-                color="textPrimary"
-              >
-                {this.props.store.details.title}
-              </Typography>
+        <Parallax image={heroImage}>
+          <div className={classes.container}>
+            <GridContainer>
+              <GridItem>
+                <div className={classes.brand}>
+                  <h1 className={classes.title}>Movie Details on...</h1>
+                </div>
+              </GridItem>
+            </GridContainer>
+          </div>
+        </Parallax>
 
-              <Box mb={3}>
-                <Typography
-                  component="p"
-                  variant="body1"
-                  gutterBottom={true}
-                  color="textPrimary"
-                >
-                  {this.props.store.details.description}
-                </Typography>
-              </Box>
+        <div className={classNames(classes.main, classes.mainRaised)}>
+          <div className={classes.sections}>
+            <div className={classes.container}>
+              <Container maxWidth={false}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={4} md={3}>
+                    <img
+                      className={classes.poster}
+                      src={this.props.store.details.poster}
+                      alt={`${this.props.store.details.title}, movie poster`}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={8} md={9}>
+                    <Typography
+                      component="h3"
+                      variant="h4"
+                      gutterBottom={true}
+                      color="textPrimary"
+                    >
+                      {this.props.store.details.title}
+                    </Typography>
 
-              <MovieGenresEditor movieId={this.props.match.params.id} />
-            </Grid>
-          </Grid>
-        </Container>
+                    <Box mb={3}>
+                      <Typography
+                        component="p"
+                        variant="body1"
+                        gutterBottom={true}
+                        color="textPrimary"
+                      >
+                        {this.props.store.details.description}
+                      </Typography>
+                    </Box>
+
+                    <MovieGenresEditor movieId={this.props.match.params.id} />
+                  </Grid>
+                </Grid>
+              </Container>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
