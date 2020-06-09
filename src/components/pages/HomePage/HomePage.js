@@ -23,8 +23,8 @@ import heroImage from '../../../assets/images/theater-seats.jpg';
 const customStyles = theme =>
   createStyles(
     {
-      ...styles,
       ...basicStyles,
+      ...styles,
     }
   );
 

@@ -17,10 +17,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
 // material-kit
-import Header from "../../material-kit/components/Header/Header.js";
+import Header from '../../material-kit/components/Header/Header.js';
 // import HeaderLinks from "../../material-kit/components/Header/HeaderLinks.js";
-import styles from "../../material-kit/assets/jss/material-kit-react/views/components.js";
-import headerLinkStyles from "../../material-kit/assets/jss/material-kit-react/components/headerLinksStyle.js";
+import styles from '../../material-kit/assets/jss/material-kit-react/views/components.js';
+
+import AppHeaderLinks from './AppHeaderLinks';
 
 const customStyles = theme =>
   createStyles(
@@ -40,7 +41,6 @@ const customStyles = theme =>
     // }
     {
       ...styles,
-      ...headerLinkStyles
     }
 );
 
@@ -65,6 +65,17 @@ class AppHeader extends Component {
       <List className={classes.list}>
         <ListItem className={classes.listItem}>
           {this.props.children}
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Link
+            underline="none"
+            color="inherit"
+            href="#/admin"
+          >
+            <Tooltip title="Admin">
+              <SettingsApplications />
+            </Tooltip>
+          </Link>
         </ListItem>
       </List>
     );
@@ -105,8 +116,12 @@ class AppHeader extends Component {
       </div> */}
 
       <Header
-        brand="Movie Saga"
-        rightLinks={headerLinks}
+        brand={this.props.title}
+        rightLinks={
+          <AppHeaderLinks>
+            {this.props.children}
+          </AppHeaderLinks>
+        }
         fixed
         color="transparent"
         changeColorOnScroll={{
