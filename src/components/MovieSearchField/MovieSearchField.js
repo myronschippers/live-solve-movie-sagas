@@ -17,6 +17,8 @@ const customStyles = theme =>
       },
       marginLeft: 0,
       width: '100%',
+      padding: '0.395rem 0.8rem',
+      marginRight: '0.8rem',
       [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(1),
         width: 'auto',
@@ -27,6 +29,8 @@ const customStyles = theme =>
       height: '100%',
       position: 'absolute',
       pointerEvents: 'none',
+      top: 0,
+      left: 0,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
