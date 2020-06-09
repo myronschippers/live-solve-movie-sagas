@@ -22,7 +22,7 @@ import Components from '../../material-kit/views/Components/Components';
 
 const newTheme = createMuiTheme({
   palette: {
-    type: 'dark',
+    // type: 'dark',
     primary: {
       // light: '',
       main: '#1947ce',

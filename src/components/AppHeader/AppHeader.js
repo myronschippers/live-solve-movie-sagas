@@ -13,27 +13,42 @@ import Tooltip from '@material-ui/core/Tooltip';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 import SettingsApplications from '@material-ui/icons/SettingsApplications';
 import Link from '@material-ui/core/Link';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+
+// material-kit
+import Header from "../../material-kit/components/Header/Header.js";
+// import HeaderLinks from "../../material-kit/components/Header/HeaderLinks.js";
+import styles from "../../material-kit/assets/jss/material-kit-react/views/components.js";
+import headerLinkStyles from "../../material-kit/assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 const customStyles = theme =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      textAlign: 'left',
-      margin: `0 0 30px`,
-    },
-    title: {
-      flexGrow: 2,
-    },
-    primaryHdg: {
-      display: 'inline-block',
-      marginRight: '0.8rem',
+  createStyles(
+    // {
+    // root: {
+    //   flexGrow: 1,
+    //   textAlign: 'left',
+    //   margin: `0 0 30px`,
+    // },
+    // title: {
+    //   flexGrow: 2,
+    // },
+    // primaryHdg: {
+    //   display: 'inline-block',
+    //   marginRight: '0.8rem',
+    // }
+    // }
+    {
+      ...styles,
+      ...headerLinkStyles
     }
-});
+);
 
 class AppHeader extends Component {
   render() {
     const {
-      classes
+      classes,
+      rest
     } = this.props;
 
     let backArrowContent = null;
@@ -46,8 +61,17 @@ class AppHeader extends Component {
       );
     }
 
+    const headerLinks = (
+      <List className={classes.list}>
+        <ListItem className={classes.listItem}>
+          {this.props.children}
+        </ListItem>
+      </List>
+    );
+
     return (
-      <div className={classes.root}>
+      <di>
+      {/* <div className={classes.root}>
         <AppBar
           color="default"
           position="static"
@@ -78,7 +102,20 @@ class AppHeader extends Component {
             </div>
           </Toolbar>
         </AppBar>
-      </div>
+      </div> */}
+
+      <Header
+        brand="Material Kit React"
+        rightLinks={headerLinks}
+        fixed
+        color="transparent"
+        changeColorOnScroll={{
+          height: 400,
+          color: "white"
+        }}
+        {...rest}
+      />
+      </di>
     );
   }
 }
