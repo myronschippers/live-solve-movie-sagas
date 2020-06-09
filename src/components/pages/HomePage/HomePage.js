@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import classNames from "classnames";
 
 // custom material styling imports
 import { withStyles, createStyles } from '@material-ui/core/styles';
@@ -48,11 +49,13 @@ class HomePage extends Component {
           </div>
         </Parallax>
 
-        <AppHeader title="Movies">
-          <MovieSearchField />
-        </AppHeader>
+        <div className={classNames(classes.main, classes.mainRaised)}>
+          <AppHeader title="Movies">
+            <MovieSearchField />
+          </AppHeader>
 
-        <MoviesList />
+          <MoviesList />
+        </div>
       </div>
     );
   }
