@@ -105,7 +105,7 @@ class AppHeader extends Component {
       </div> */}
 
       <Header
-        brand="Material Kit React"
+        brand="Movie Saga"
         rightLinks={headerLinks}
         fixed
         color="transparent"
