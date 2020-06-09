@@ -15,6 +15,7 @@ import GridContainer from '../../../material-kit/components/Grid/GridContainer.j
 import GridItem from '../../../material-kit/components/Grid/GridItem.js';
 import Parallax from '../../../material-kit/components/Parallax/Parallax.js';
 
+import basicStyles from "../../../material-kit/assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import styles from '../../../material-kit/assets/jss/material-kit-react/views/components.js';
 // import heroImage from '../../../material-kit/assets/img/bg4.jpg';
 import heroImage from '../../../assets/images/theater-seats.jpg';
@@ -23,6 +24,7 @@ const customStyles = theme =>
   createStyles(
     {
       ...styles,
+      ...basicStyles,
     }
   );
 
@@ -34,6 +36,10 @@ class HomePage extends Component {
 
     return (
       <div>
+        <AppHeader title="Movies">
+          <MovieSearchField />
+        </AppHeader>
+
         <Parallax image={heroImage}>
           <div className={classes.container}>
             <GridContainer>
@@ -50,11 +56,11 @@ class HomePage extends Component {
         </Parallax>
 
         <div className={classNames(classes.main, classes.mainRaised)}>
-          <AppHeader title="Movies">
-            <MovieSearchField />
-          </AppHeader>
-
-          <MoviesList />
+          <div className={classes.sections}>
+            <div className={classes.container}>
+              <MoviesList />
+            </div>
+          </div>
         </div>
       </div>
     );
