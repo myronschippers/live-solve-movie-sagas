@@ -33,9 +33,13 @@ export default function HeaderLinks(props) {
   if (props.backHandler != null) {
     backArrowContent = (
       <ListItem className={classes.listItem}>
-        <IconButton color="secondary" onClick={props.backHandler}>
-          <ArrowBackIos fontSize="large" />
-        </IconButton>
+        <Button
+          color="transparent"
+          onClick={props.backHandler}
+          className={classes.navLink}
+        >
+          <ArrowBackIos fontSize="large" /> BACK
+        </Button>
       </ListItem>
     );
   }
