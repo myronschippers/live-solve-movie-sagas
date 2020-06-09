@@ -10,6 +10,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
+import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 
 // @material-ui/icons
 import { Apps, CloudDownload } from "@material-ui/icons";
@@ -26,8 +27,22 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+
+  let backArrowContent = null;
+
+  if (props.backHandler != null) {
+    backArrowContent = (
+      <ListItem className={classes.listItem}>
+        <IconButton color="secondary" onClick={props.backHandler}>
+          <ArrowBackIos fontSize="large" />
+        </IconButton>
+      </ListItem>
+    );
+  }
+
   return (
     <List className={classes.list}>
+      {backArrowContent}
       <ListItem className={classes.listItem}>
         {props.children}
       </ListItem>

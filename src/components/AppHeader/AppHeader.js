@@ -51,34 +51,34 @@ class AppHeader extends Component {
       rest
     } = this.props;
 
-    let backArrowContent = null;
+    // let backArrowContent = null;
 
-    if (this.props.backHandler != null) {
-      backArrowContent = (
-        <IconButton color="secondary" onClick={this.props.backHandler}>
-          <ArrowBackIos fontSize="large" />
-        </IconButton>
-      );
-    }
+    // if (this.props.backHandler != null) {
+    //   backArrowContent = (
+    //     <IconButton color="secondary" onClick={this.props.backHandler}>
+    //       <ArrowBackIos fontSize="large" />
+    //     </IconButton>
+    //   );
+    // }
 
-    const headerLinks = (
-      <List className={classes.list}>
-        <ListItem className={classes.listItem}>
-          {this.props.children}
-        </ListItem>
-        <ListItem className={classes.listItem}>
-          <Link
-            underline="none"
-            color="inherit"
-            href="#/admin"
-          >
-            <Tooltip title="Admin">
-              <SettingsApplications />
-            </Tooltip>
-          </Link>
-        </ListItem>
-      </List>
-    );
+    // const headerLinks = (
+    //   <List className={classes.list}>
+    //     <ListItem className={classes.listItem}>
+    //       {this.props.children}
+    //     </ListItem>
+    //     <ListItem className={classes.listItem}>
+    //       <Link
+    //         underline="none"
+    //         color="inherit"
+    //         href="#/admin"
+    //       >
+    //         <Tooltip title="Admin">
+    //           <SettingsApplications />
+    //         </Tooltip>
+    //       </Link>
+    //     </ListItem>
+    //   </List>
+    // );
 
     return (
       <di>
@@ -118,7 +118,7 @@ class AppHeader extends Component {
       <Header
         brand={this.props.title}
         rightLinks={
-          <AppHeaderLinks>
+          <AppHeaderLinks backHandler={this.props.backHandler}>
             {this.props.children}
           </AppHeaderLinks>
         }
