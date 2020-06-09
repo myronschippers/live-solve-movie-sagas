@@ -118,7 +118,7 @@ class AppHeader extends Component {
       <Header
         brand={this.props.title}
         rightLinks={
-          <AppHeaderLinks backHandler={this.props.backHandler}>
+          <AppHeaderLinks {...this.props}>
             {this.props.children}
           </AppHeaderLinks>
         }

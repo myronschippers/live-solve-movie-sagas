@@ -29,6 +29,7 @@ export default function HeaderLinks(props) {
   const classes = useStyles();
 
   let backArrowContent = null;
+  let customButton = null;
 
   if (props.backHandler != null) {
     backArrowContent = (
@@ -44,9 +45,24 @@ export default function HeaderLinks(props) {
     );
   }
 
+  if (props.btnCallback != null && props.btnText != null) {
+    customButton = (
+      <ListItem className={classes.listItem}>
+        <Button
+          color="transparent"
+          onClick={props.btnCallback}
+          className={classes.navLink}
+        >
+          {props.btnIcon} {props.btnText}
+        </Button>
+      </ListItem>
+    );
+  }
+
   return (
     <List className={classes.list}>
       {backArrowContent}
+      {customButton}
       <ListItem className={classes.listItem}>
         {props.children}
       </ListItem>

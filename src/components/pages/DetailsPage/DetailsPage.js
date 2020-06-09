@@ -12,6 +12,7 @@ import {
   Typography,
   Box,
 } from '@material-ui/core';
+import { Edit } from '@material-ui/icons';
 
 import AppHeader from '../../AppHeader/AppHeader';
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
@@ -23,7 +24,9 @@ import Parallax from '../../../material-kit/components/Parallax/Parallax.js';
 // material-kit styling
 import basicStyles from "../../../material-kit/assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import styles from '../../../material-kit/assets/jss/material-kit-react/views/components.js';
+
 import heroImage from '../../../assets/images/filming.jpg';
+
 
 const customStyles = theme =>
   createStyles({
@@ -63,15 +66,17 @@ class DetailsPage extends Component {
         <AppHeader
           title="Movie Saga"
           backHandler={this.clickBackToList}
+          btnCallback={this.clickEditMovie}
+          btnText="Edit"
+          btnIcon={<Edit />}
         >
-          <Button
+          {/* <CustomButton
             onClick={this.clickEditMovie}
-            variant="contained"
-            color="primary"
-            size="medium"
+            color="transparent"
+            className={classes.navLink}
           >
             Edit
-          </Button>
+          </CustomButton> */}
         </AppHeader>
 
         <Parallax image={heroImage}>
