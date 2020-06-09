@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import classNames from "classnames";
 
 // material-ui custom styling dependencies
 import { withStyles, createStyles } from '@material-ui/core/styles';
@@ -13,15 +14,32 @@ import {
   Box,
   Paper,
 } from '@material-ui/core';
+import {
+  Save
+} from '@material-ui/icons';
 
+// material-kit
+import GridContainer from '../../../material-kit/components/Grid/GridContainer.js';
+import GridItem from '../../../material-kit/components/Grid/GridItem.js';
+import Parallax from '../../../material-kit/components/Parallax/Parallax.js';
+// material-kit styling
+import basicStyles from "../../../material-kit/assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
+import styles from '../../../material-kit/assets/jss/material-kit-react/views/components.js';
+
+import heroImage from '../../../assets/images/two-cameras.jpg';
+
+// custom components
 import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
 import AppHeader from '../../AppHeader/AppHeader';
+
 
 const customStyles = theme =>
   createStyles({
     paperBlock: {
       padding: theme.spacing(4),
     },
+    ...basicStyles,
+    ...styles,
   });
 
 class EditPage extends Component {
@@ -119,32 +137,53 @@ class EditPage extends Component {
     return (
       <div className="algnLeft">
         <AppHeader
-          title="Edit"
+          title="Movie Saga"
           backHandler={this.clickCancel}
+          btnCallback={this.clickSaveMovieDetails}
+          btnText="SAVE"
+          btnIcon={<Save />}
         >
-          <Button
+          {/* <Button
             onClick={this.clickSaveMovieDetails}
             variant="contained"
             color="primary"
             size="medium"
           >
             Save
-          </Button>
+          </Button> */}
         </AppHeader>
 
-        <Container maxWidth={false}>
-          <Box mb={4}>
-            <Paper
-              className={classes.paperBlock}
-              component="div"
-              variant="outlined"
-            >
-              {movieForm}
-            </Paper>
-          </Box>
+        <Parallax image={heroImage}>
+          <div className={classes.container}>
+            <GridContainer>
+              <GridItem>
+                <div className={classes.brand}>
+                  <h1 className={classes.title}>Edit Movie Details...</h1>
+                </div>
+              </GridItem>
+            </GridContainer>
+          </div>
+        </Parallax>
 
-          <MovieGenresEditor movieId={this.props.match.params.id} />
-        </Container>
+        <div className={classNames(classes.main, classes.mainRaised)}>
+          <div className={classes.sections}>
+            <div className={classes.container}>
+              <Container maxWidth={false}>
+                <Box mb={4}>
+                  <Paper
+                    className={classes.paperBlock}
+                    component="div"
+                    variant="outlined"
+                  >
+                    {movieForm}
+                  </Paper>
+                </Box>
+
+                <MovieGenresEditor movieId={this.props.match.params.id} />
+              </Container>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
