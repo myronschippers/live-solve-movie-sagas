@@ -53,7 +53,10 @@ class MoviesList extends Component {
             <Grid
               key={index}
               item
-              xs={2}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={2}
             >
               <MoviesListItem item={item} />
             </Grid>

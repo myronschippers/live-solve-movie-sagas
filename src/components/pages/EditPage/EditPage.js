@@ -84,11 +84,12 @@ class EditPage extends Component {
     ) {
       movieForm = (
         <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 type="text"
                 placeholder="New Title"
                 onChange={this.changeMovieDetails('title')}
+                value={this.state.title}
                 defaultValue={this.props.store.details.title}
 
                 fullWidth
@@ -97,9 +98,10 @@ class EditPage extends Component {
                 required
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 onChange={this.changeMovieDetails('description')}
+                value={this.state.description}
                 defaultValue={this.props.store.details.description}
 
                 fullWidth
