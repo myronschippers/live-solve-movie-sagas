@@ -51,10 +51,11 @@ class MoviesList extends Component {
         <Grid container spacing={2}>
           {limitedResults.map((item, index) => (
             <Grid
+              key={index}
               item
               xs={2}
             >
-              <MoviesListItem key={index} item={item} />
+              <MoviesListItem item={item} />
             </Grid>
           ))}
         </Grid>
