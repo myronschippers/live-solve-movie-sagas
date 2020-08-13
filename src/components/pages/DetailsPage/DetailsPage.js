@@ -64,14 +64,14 @@ class DetailsPage extends Component {
 
         <Container maxWidth={false}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={4} md={3}>
+            <Grid item xs={3}>
               <img
                 className={classes.poster}
                 src={this.props.store.details.poster}
                 alt={`${this.props.store.details.title}, movie poster`}
               />
             </Grid>
-            <Grid item xs={12} sm={8} md={9}>
+            <Grid item xs={9}>
               <Typography
                 component="h2"
                 variant="h4"

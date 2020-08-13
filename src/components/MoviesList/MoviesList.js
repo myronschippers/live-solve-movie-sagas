@@ -52,10 +52,7 @@ class MoviesList extends Component {
           {limitedResults.map((item, index) => (
             <Grid
               item
-              xs={12}
-              sm={4}
-              md={3}
-              lg={2}
+              xs={2}
             >
               <MoviesListItem key={index} item={item} />
             </Grid>

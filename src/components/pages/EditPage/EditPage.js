@@ -84,7 +84,7 @@ class EditPage extends Component {
     ) {
       movieForm = (
         <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={6}>
               <TextField
                 type="text"
                 placeholder="New Title"
@@ -97,7 +97,7 @@ class EditPage extends Component {
                 required
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <TextField
                 onChange={this.changeMovieDetails('description')}
                 defaultValue={this.props.store.details.description}
